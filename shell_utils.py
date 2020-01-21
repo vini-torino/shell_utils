@@ -58,10 +58,12 @@ def sed(path, before, after):
                 f.write('\n')
             f.close()
 
+
 def touch(path):
     with open(path, 'w') as f:
          f.write('')
          f.close()
+
 
 def hostname():
     with open('/etc/hostname') as f:
@@ -69,4 +71,17 @@ def hostname():
         f.close()
         print(data)
 
+
+def sort(path):
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        for xline in range(0, len(data) ):
+            for yline in range(1, len(data) ):
+                if data[xline] >  data[yline]:
+                    tmp = data[xline]
+                    data[xline] = data[yline]
+                    data[yline] = tmp
+        for index  in range(len(data) -1 , -1 , -1):
+            print(data[index])
 
