@@ -1,3 +1,6 @@
+import getpass
+import sys 
+import requests 
 
 def cat(path):
     with open(path, 'r') as f:
@@ -84,4 +87,25 @@ def sort(path):
                     data[yline] = tmp
         for index  in range(len(data) -1 , -1 , -1):
             print(data[index])
+
+
+# Check if a program is running as root and exit if get False
+# must  import  [ 'getpass', 'sys' ]
+def is_root():
+    if getpass.getuser() != 'root':
+        print('please, run this program as root', file=sys.stderr )
+        sys.exit()
+
+# Must import 
+# import requests 
+# import sys
+
+def wget(url):
+    #Supress warnings
+    requests.packages.urllib3.disable_warnings()
+    base_url = url.split('/')[-1]
+    req = requests.get(url , allow_redirects=True, verify=False)
+    open(base_url, 'wb').write(req.content)
+
+
 
