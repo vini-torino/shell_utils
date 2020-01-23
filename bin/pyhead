@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def head(path, lines):
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        for  index in range(lines):
+            print(data[index])
+
+
+head(sys.argv[1], sys.argv[2])

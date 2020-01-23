@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def cut(path, field, separator):
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        for line in data:
+            count_field = 0
+            for char in line:
+                if char == separator:
+                    count_field += 1
+                if count_field == field:
+                    print(char,end='')
+            print()
+
+cut(sys.argv[1], sys.argv[2], sys.argv[3])

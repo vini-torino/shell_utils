@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def sed(path, before, after):
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        with open(path, 'w') as f:
+            for line in data:
+                for char in line:
+                    if char != before:
+                        f.write(char)
+                    else:
+                        f.write(after)
+                f.write('\n')
+            f.close()
+
+
+sed(sys.argv[1], sys.argv[2], sys.argv[3])

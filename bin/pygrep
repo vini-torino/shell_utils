@@ -1,0 +1,15 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def grep(path, string):
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        for line in data:
+            if string in line:
+                print(line)
+
+
+grep(sys.argv[1], sys.argv[2])

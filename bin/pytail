@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def tail(path, lines):
+    total = 0
+    with open(path, 'r') as f:
+        data = f.readlines()
+        f.close()
+        for count  in data:
+            total += 1 
+        for index in range(total - lines, total):
+            print(data[index])
+
+
+tail(sys.argv[1], sys.argv[2])

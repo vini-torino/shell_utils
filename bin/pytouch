@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+# - * - coding: utf-8 - * -
+
+import sys
+
+def touch(path):
+    with open(path, 'w') as f:
+         f.write('')
+         f.close()
+
+
+touch(sys.argv[1])
